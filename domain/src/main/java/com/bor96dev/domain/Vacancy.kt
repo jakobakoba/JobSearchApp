@@ -4,8 +4,8 @@ data class Vacancy (
     val id: String,
     val lookingNumber: Int?,
     val title: String,
-    val city: Address,
-    val companyName: String,
+    val address: Address,
+    val company: String,
     val experience: Experience,
     val publishedDate: String,
     val isFavorite: Boolean
