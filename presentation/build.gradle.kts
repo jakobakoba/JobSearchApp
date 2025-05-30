@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.bor96dev.data"
+    namespace = "com.bor96dev.presentation"
     compileSdk = 35
 
     defaultConfig {
@@ -43,10 +43,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.gson)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
-
 
     implementation(project(":domain"))
 }
