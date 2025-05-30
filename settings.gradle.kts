@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "JobSearchApp"
 include(":app")
+include(":domain")
+include(":data")
