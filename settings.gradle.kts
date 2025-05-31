@@ -23,3 +23,4 @@ rootProject.name = "JobSearchApp"
 include(":app")
 include(":domain")
 include(":data")
+include(":presentation")
