@@ -1,5 +1,7 @@
 package com.bor96dev.presentation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -20,7 +22,9 @@ fun NavGraph(
     NavHost(
         navController = navController,
         startDestination = Destinations.Search.route,
-        modifier = modifier
+        modifier = modifier,
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None }
     ) {
         composable(Destinations. Search.route){
             SearchScreen()
