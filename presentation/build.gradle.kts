@@ -55,6 +55,8 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
+    implementation(libs.navigation.compose)
+
 
     implementation(project(":domain"))
 }
