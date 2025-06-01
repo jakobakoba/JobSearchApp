@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.bor96dev.presentation.MainViewModel
 import com.bor96dev.presentation.composables.SearchHeaderExpanded
 import com.bor96dev.presentation.composables.SearchHeaderNormal
@@ -27,14 +26,15 @@ import com.bor96dev.presentation.composables.VacancyItem
 
 @Composable
 fun SearchScreen(
-    viewModel: MainViewModel = hiltViewModel(),
+    viewModel: MainViewModel,
     onVacancyClick: (String) -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsState()
     var showAllVacancies by remember { mutableStateOf(false) }
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
     ){
         if (showAllVacancies) {
             SearchHeaderExpanded(

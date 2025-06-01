@@ -18,6 +18,7 @@ import com.bor96dev.presentation.screens.VacancyDetailScreen
 @Composable
 fun NavGraph(
     navController: NavHostController,
+    viewModel: MainViewModel,
     modifier: Modifier = Modifier
 ) {
     NavHost(
@@ -29,6 +30,7 @@ fun NavGraph(
     ) {
         composable(Destinations. Search.route){
             SearchScreen(
+                viewModel = viewModel,
                 onVacancyClick = {vacancyId ->
                     navController.navigate(Destinations.VacancyDetail.createRoute(vacancyId))
                 }
@@ -39,7 +41,10 @@ fun NavGraph(
             VacancyDetailScreen(vacancyId = vacancyId)
         }
         composable(Destinations.Favorites.route){
-            FavoriteScreen()
+            FavoriteScreen(viewModel = viewModel,
+                onVacancyClick = {vacancyId ->
+                    navController.navigate(Destinations.VacancyDetail.createRoute(vacancyId))
+                })
         }
         composable(Destinations.Responses.route){
             ResponseScreen()

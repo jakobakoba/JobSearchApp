@@ -1,5 +1,6 @@
 package com.bor96dev.presentation.composables
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -39,7 +40,7 @@ fun VacancyItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp)
-            .clickable{onVacancyClick(vacancy.id)}
+            .clickable { onVacancyClick(vacancy.id) }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -49,32 +50,45 @@ fun VacancyItem(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                vacancy.lookingNumber?.let { lookingNumber ->
+                if (vacancy.lookingNumber != null) {
                     Text(
-                        text = "Сейчас просматривают: $lookingNumber ${getPersonWord(lookingNumber)}",
+                        text = "Сейчас просматривают: ${vacancy.lookingNumber} ${
+                            getPersonWord(
+                                vacancy.lookingNumber!!
+                            )
+                        }",
                         color = Green,
-                        fontSize = 14.sp
+                        fontSize = 14.sp,
+                        modifier = Modifier.weight(1f)
                     )
+                } else {
+                    Text(
+                        text = vacancy.title,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = White
+                    )
+                }
 
-                    IconButton(onClick = onFavoriteClick) {
-                        Icon(
-                            painter = painterResource(
-                                if (vacancy.isFavorite) R.drawable.favorite_checked else R.drawable.favorite_unchecked_ic
-                            ),
-                            contentDescription = "Избранное"
-                        )
-                    }
+                IconButton(onClick = onFavoriteClick) {
+                    Image(
+                        painter = painterResource(
+                            if (vacancy.isFavorite) R.drawable.favorite_checked else R.drawable.favorite_unchecked_ic
+                        ),
+                        contentDescription = "Избранное"
+                    )
                 }
             }
             Spacer(modifier = Modifier.height(10.dp))
-
-            Text(
-                text = vacancy.title,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Medium,
-                color = White
-            )
-            Spacer(modifier = Modifier.height(10.dp))
+            if (vacancy.lookingNumber != null) {
+                Text(
+                    text = vacancy.title,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = White
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+            }
 
             Text(vacancy.address.town, color = White, fontSize = 14.sp)
             Spacer(modifier = Modifier.height(4.dp))
@@ -106,7 +120,8 @@ fun VacancyItem(
 
             Button(
                 onClick = {},
-                modifier =Modifier.fillMaxWidth()
+                modifier =Modifier
+                    .fillMaxWidth()
                     .clickable(enabled = false) {},
                 colors = ButtonDefaults.buttonColors(containerColor = Green),
                 shape = RoundedCornerShape(50.dp)
