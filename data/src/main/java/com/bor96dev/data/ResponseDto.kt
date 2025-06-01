@@ -16,7 +16,9 @@ data class OfferDto(
     @SerializedName("title")
     val title: String,
     @SerializedName("button")
-    val button: ButtonDto?
+    val button: ButtonDto?,
+    @SerializedName("link")
+    val link: String
 )
 
 data class ButtonDto(

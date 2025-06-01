@@ -19,5 +19,6 @@ fun VacancyDto.toDomain(): Vacancy = Vacancy(
 fun OfferDto.toDomain(): Recommendation = Recommendation(
     id = id,
     title = title,
-    button = button?.text
+    button = button?.text,
+    link = link
 )

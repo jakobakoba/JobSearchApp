@@ -14,6 +14,7 @@ material = "1.12.0"
 gson = "2.11.0"
 hilt = "2.56.2"
 ksp = "2.1.21-2.0.1"
+hiltNavigationVersion = "1.2.0"
 navVersion = "2.8.9"
 
 
@@ -42,6 +43,8 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 
 navigation-compose = {group = "androidx.navigation", name = "navigation-compose", version.ref = "navVersion"}
+
+navigation-hilt = {group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationVersion"}
 
 
 [plugins]
