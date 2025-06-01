@@ -1,4 +1,4 @@
-демо:
+
 https://github.com/user-attachments/assets/0b1a973d-1374-4e66-9619-d5d4451fa60a
 
 Приложение сделано по ТЗ:
