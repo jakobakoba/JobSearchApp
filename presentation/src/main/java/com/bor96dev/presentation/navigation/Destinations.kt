@@ -7,4 +7,7 @@ sealed class Destinations(val route: String) {
     object Responses: Destinations("responses")
     object Messages: Destinations("messages")
     object Profile: Destinations("profile")
+    object VacancyDetail: Destinations("vacancy_detail/{vacancyId}") {
+        fun createRoute(vacancyId: String) = "vacancy_detail/$vacancyId"
+    }
 }

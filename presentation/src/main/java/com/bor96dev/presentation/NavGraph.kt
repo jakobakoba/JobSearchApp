@@ -13,6 +13,7 @@ import com.bor96dev.presentation.screens.MessageScreen
 import com.bor96dev.presentation.screens.ProfileScreen
 import com.bor96dev.presentation.screens.ResponseScreen
 import com.bor96dev.presentation.screens.SearchScreen
+import com.bor96dev.presentation.screens.VacancyDetailScreen
 
 @Composable
 fun NavGraph(
@@ -27,7 +28,15 @@ fun NavGraph(
         exitTransition = { ExitTransition.None }
     ) {
         composable(Destinations. Search.route){
-            SearchScreen()
+            SearchScreen(
+                onVacancyClick = {vacancyId ->
+                    navController.navigate(Destinations.VacancyDetail.createRoute(vacancyId))
+                }
+            )
+        }
+        composable(Destinations.VacancyDetail.route){backStackEntry ->
+            val vacancyId = backStackEntry.arguments?.getString("vacancyId") ?: ""
+            VacancyDetailScreen(vacancyId = vacancyId)
         }
         composable(Destinations.Favorites.route){
             FavoriteScreen()

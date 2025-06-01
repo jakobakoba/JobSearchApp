@@ -24,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.bor96dev.domain.Recommendation
 import com.bor96dev.presentation.R
+import com.bor96dev.presentation.ui.theme.Grey2
 
 @Composable
 fun SearchHeaderNormal(recommendations: List<Recommendation>) {
@@ -57,7 +58,7 @@ fun SearchHeaderNormal(recommendations: List<Recommendation>) {
                 onClick = {},
                 modifier = Modifier
                     .fillMaxHeight()
-                    .background(Color.DarkGray, shape = RoundedCornerShape(16.dp))
+                    .background(Grey2, shape = RoundedCornerShape(16.dp))
             ) {
                 Icon(
                     painterResource(id = R.drawable.filter),
