@@ -1,13 +1,14 @@
 package com.bor96dev.presentation.composables
 
 import android.content.Intent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +34,7 @@ fun RecommendationItem(
         modifier = Modifier
             .width(132.dp)
             .height(120.dp)
+            .padding(start = 8.dp, end = 8.dp)
             .clickable{
                 val intent = Intent(Intent.ACTION_VIEW, recommendation.link.toUri())
                 context.startActivity(intent)
@@ -43,11 +45,12 @@ fun RecommendationItem(
         ) {
             recommendation.id?.let {id ->
                 val iconRes = getRecommendationIcon(id)
-                Icon (
+                Image (
                     painter = painterResource(iconRes),
                     contentDescription = null,
                 )
             }
+            Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = recommendation.title,
                 fontSize = 14.sp,
@@ -71,6 +74,6 @@ private fun getRecommendationIcon(id: String): Int {
     return when(id){
         "near_vacancies" -> R.drawable.near
         "level_up_resume" -> R.drawable.levelup
-        else  -> R.drawable.temporaryjob
+        else -> R.drawable.temporaryjob
     }
 }

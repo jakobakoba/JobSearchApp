@@ -46,7 +46,7 @@ fun SearchHeaderExpanded(
 
             IconButton(onClick = {}) {
                 Icon(
-                    painter = painterResource(id = R.drawable.filter_ic),
+                    painter = painterResource(id = R.drawable.filter),
                     contentDescription = "Фильтр"
                 )
             }
