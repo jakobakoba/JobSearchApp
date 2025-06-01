@@ -28,8 +28,8 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true)
 
-            val (vacanciesSuccess, vacancies) = vacancyRepository.loadVacancies()
-            val (recommendationsSuccess, recommendations) = vacancyRepository.loadRecommendations()
+            val vacancies = vacancyRepository.loadVacancies()
+            val recommendations = vacancyRepository.loadRecommendations()
 
             _uiState.value = _uiState.value.copy(
                 isLoading = false,

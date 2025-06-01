@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -37,7 +37,7 @@ fun SearchHeaderNormal(recommendations: List<Recommendation>) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LazyColumn {
+        LazyRow {
             items(recommendations) { recommendation ->
                 RecommendationItem(recommendation = recommendation)
             }

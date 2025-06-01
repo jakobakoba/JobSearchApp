@@ -10,20 +10,20 @@ class RepositoryImpl @Inject constructor(
     private val mockDataSource: MockDataSource,
     private val favoriteStorage: FavoriteStorage
 ) : VacancyRepository {
-    override suspend fun loadVacancies(): Pair<Boolean, List<Vacancy>> {
+    override suspend fun loadVacancies(): List<Vacancy> {
         val vacancies = mockDataSource.getVacancies()
         val favoriteIds = favoriteStorage.getFavoriteIds()
 
         val vacanciesWithFavorites = vacancies.map { vacancy ->
             vacancy.copy(isFavorite = favoriteIds.contains(vacancy.id))
         }
-        return Pair(true, vacanciesWithFavorites)
+        return vacanciesWithFavorites
     }
 
 
-    override suspend fun loadRecommendations(): Pair<Boolean, List<Recommendation>> {
+    override suspend fun loadRecommendations(): List<Recommendation> {
         val recommendations = mockDataSource.getRecommendations()
-        return Pair(true, recommendations)
+        return recommendations
     }
 
     override suspend fun toggleFavorite(vacancy: Vacancy) {
