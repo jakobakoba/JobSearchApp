@@ -34,7 +34,8 @@ fun SearchScreen(
     var showAllVacancies by remember { mutableStateOf(false) }
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
     ){
         if (showAllVacancies) {
             SearchHeaderExpanded(
