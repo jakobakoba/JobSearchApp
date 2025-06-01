@@ -1,5 +1,6 @@
 package com.bor96dev.presentation.composables
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
@@ -26,9 +27,8 @@ import com.bor96dev.presentation.ui.theme.White
 @Composable
 fun BottomNavigationBar(
     navController: NavController,
-    viewModel: MainViewModel = hiltViewModel()
     ) {
-
+    val viewModel: MainViewModel = hiltViewModel()
     val uiState by viewModel.uiState.collectAsState()
     val favoriteCount = uiState.vacancies.count{it.isFavorite}
 
@@ -61,18 +61,21 @@ fun BottomNavigationBar(
                         if (destination == Destinations.Favorites && favoriteCount > 0){
                             Box (
                                 modifier = Modifier
-                                    .size(16.dp)
-                                    .offset(x = 12.dp, y = (-4).dp),
-                                contentAlignment = Alignment.Center
+                                    .size(14.dp)
+                                    .offset(x = 2.dp, y = (-2).dp)
+                                    .align(Alignment.TopEnd),
+                                contentAlignment = Alignment.TopCenter
                             ) {
-                                Icon (
+                                Image (
                                     painter = painterResource(id = R.drawable.red_dot),
                                     contentDescription = null,
+                                    modifier = Modifier.size(14.dp)
                                 )
                                 Text(
                                     text = favoriteCount.toString(),
-                                    fontSize = 8.sp,
-                                    color = White
+                                    fontSize = 14.sp,
+                                    color = White,
+                                    modifier = Modifier.offset(y = (-4).dp)
                                 )
                             }
                         }
