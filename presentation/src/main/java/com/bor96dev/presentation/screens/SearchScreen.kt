@@ -67,6 +67,7 @@ fun SearchScreen(
 
             if (!showAllVacancies && uiState.vacancies.size > 3) {
                 item {
+                    Spacer(modifier = Modifier.height(24.dp))
                     ShowMoreButton(
                         remainingCount = uiState.vacancies.size - 3,
                         onClick = { showAllVacancies = true }

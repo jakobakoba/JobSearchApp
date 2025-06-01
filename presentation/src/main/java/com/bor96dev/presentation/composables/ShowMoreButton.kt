@@ -1,7 +1,9 @@
 package com.bor96dev.presentation.composables
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,17 +19,13 @@ fun ShowMoreButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-        Button(
-            onClick = onClick,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ){
-            Text("Еще $remainingCount ${getVacancyWord(remainingCount)}")
-        }
+            .height(48.dp)
+            .padding(start = 15.dp, end = 15.dp, bottom = 5.dp),
+        shape = RoundedCornerShape(8.dp)
+    ){
+        Text("Еще $remainingCount ${getVacancyWord(remainingCount)}")
     }
+
 }
 
 fun getVacancyWord(count: Int): String {
