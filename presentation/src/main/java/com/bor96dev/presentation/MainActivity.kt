@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.bor96dev.presentation.composables.BottomNavigationBar
 import com.bor96dev.presentation.ui.theme.JobSearchAppTheme
@@ -21,15 +22,20 @@ class MainActivity : ComponentActivity() {
         setContent {
             JobSearchAppTheme(darkTheme = true) {
                 val navController = rememberNavController()
+                val viewModel : MainViewModel = hiltViewModel()
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
-                        BottomNavigationBar(navController = navController)
+                        BottomNavigationBar(
+                            navController = navController,
+                            viewModel = viewModel
+                        )
                     }
 
                 ) { innerPadding ->
                     NavGraph(
                         navController = navController,
+                        viewModel = viewModel,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

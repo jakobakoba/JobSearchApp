@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.bor96dev.presentation.MainViewModel
 import com.bor96dev.presentation.composables.VacancyItem
 import com.bor96dev.presentation.composables.getVacancyWord
@@ -24,7 +23,7 @@ import com.bor96dev.presentation.ui.theme.White
 
 @Composable
 fun FavoriteScreen(
-    viewModel: MainViewModel = hiltViewModel(),
+    viewModel: MainViewModel,
     onVacancyClick: (String) -> Unit = {}
 ) {
 
