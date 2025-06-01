@@ -27,7 +27,8 @@ import com.bor96dev.presentation.composables.VacancyItem
 
 @Composable
 fun SearchScreen(
-    viewModel: MainViewModel = hiltViewModel()
+    viewModel: MainViewModel = hiltViewModel(),
+    onVacancyClick: (String) -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsState()
     var showAllVacancies by remember { mutableStateOf(false) }
@@ -61,7 +62,8 @@ fun SearchScreen(
             items(displayedVacancies) { vacancy ->
                 VacancyItem(
                     vacancy = vacancy,
-                    onFavoriteClick = { viewModel.toggleFavorite(vacancy) }
+                    onFavoriteClick = { viewModel.toggleFavorite(vacancy) },
+                    onVacancyClick = onVacancyClick
                 )
             }
 

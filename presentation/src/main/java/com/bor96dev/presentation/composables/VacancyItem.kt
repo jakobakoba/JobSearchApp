@@ -1,5 +1,6 @@
 package com.bor96dev.presentation.composables
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,12 +32,14 @@ import com.bor96dev.presentation.ui.theme.White
 @Composable
 fun VacancyItem(
     vacancy: Vacancy,
-    onFavoriteClick: () -> Unit
+    onFavoriteClick: () -> Unit,
+    onVacancyClick: (String) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp)
+            .clickable{onVacancyClick(vacancy.id)}
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -103,7 +106,8 @@ fun VacancyItem(
 
             Button(
                 onClick = {},
-                modifier =Modifier.fillMaxWidth(),
+                modifier =Modifier.fillMaxWidth()
+                    .clickable(enabled = false) {},
                 colors = ButtonDefaults.buttonColors(containerColor = Green),
                 shape = RoundedCornerShape(50.dp)
             ) {

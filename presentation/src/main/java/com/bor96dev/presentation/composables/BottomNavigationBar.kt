@@ -60,6 +60,7 @@ private fun findIcon(destination: Destinations): Int {
         Destinations.Responses -> R.drawable.responses_ic
         Destinations.Messages -> R.drawable.messages_ic
         Destinations.Profile -> R.drawable.profile_ic
+        Destinations.VacancyDetail -> R.drawable.profile_ic
     }
 }
 
@@ -70,5 +71,6 @@ private fun findLabel(destination: Destinations): String {
         Destinations.Responses -> "Отклики"
         Destinations.Messages -> "Сообщения"
         Destinations.Profile -> "Профиль"
+        Destinations.VacancyDetail -> ""
     }
 }
