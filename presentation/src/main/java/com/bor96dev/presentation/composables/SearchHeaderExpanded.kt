@@ -1,6 +1,7 @@
 package com.bor96dev.presentation.composables
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -55,7 +56,8 @@ fun SearchHeaderExpanded(
                 leadingIcon = {
                     Icon(
                         painter = painterResource(id = R.drawable.back_ic),
-                        contentDescription = "Назад"
+                        contentDescription = "Назад",
+                        modifier = Modifier.clickable { onBackClick() }
                     )
                 },
                 colors = TextFieldDefaults.colors(
