@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -50,24 +51,27 @@ fun VacancyItem(
                         )
                     }
                 }
+            }
 
-                Text(vacancy.title)
-                Text(vacancy.address.town)
-                Row() {
-                    Text(vacancy.company)
-                    Icon(
-                        painter = painterResource(R.drawable.checked),
-                        contentDescription = "Компания"
-                    )
-                }
-                Row() {
-                    Icon(
-                        painter = painterResource(R.drawable.experience),
-                        contentDescription = "Опыт"
-                    )
-                    Text(vacancy.experience.previewText)
-                }
-                Text(vacancy.publishedDate)
+            Text(vacancy.title)
+            Text(vacancy.address.town)
+            Row() {
+                Text(vacancy.company)
+                Icon(
+                    painter = painterResource(R.drawable.checked),
+                    contentDescription = "Компания"
+                )
+            }
+            Row() {
+                Icon(
+                    painter = painterResource(R.drawable.experience),
+                    contentDescription = "Опыт"
+                )
+                Text(vacancy.experience.previewText)
+            }
+            Text(vacancy.publishedDate)
+            Button(onClick = {}) {
+                Text("Откликнуться")
             }
         }
     }
