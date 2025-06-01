@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            JobSearchAppTheme {
+            JobSearchAppTheme(darkTheme = true) {
                 val navController = rememberNavController()
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
