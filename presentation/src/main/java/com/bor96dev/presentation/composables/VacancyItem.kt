@@ -98,7 +98,7 @@ fun VacancyItem(
                 Text(vacancy.experience.previewText, color = White, fontSize = 14.sp)
             }
             Spacer(modifier = Modifier.height(10.dp))
-            Text(vacancy.publishedDate, color = Grey3, fontSize = 14.sp)
+            Text(text = "Опубликовано ${formatDate(vacancy.publishedDate)}", color = Grey3, fontSize = 14.sp)
             Spacer(modifier = Modifier.height(21.dp))
 
             Button(
@@ -110,5 +110,30 @@ fun VacancyItem(
                 Text("Откликнуться", color = White, fontSize = 14.sp)
             }
         }
+    }
+}
+
+
+private fun formatDate(dateString: String): String {
+    val parts = dateString.split("-")
+    val day = parts[2].toInt()
+    val month = getMonth(parts[1].toInt())
+    return "$day $month"
+}
+
+private fun getMonth(month: Int): String {
+    return when (month){
+        1 -> "января"
+        2 -> "февраля"
+        3 -> "марта"
+        4 -> "апреля"
+        5 -> "мая"
+        6 -> "июня"
+        7 -> "июля"
+        8 -> "августа"
+        9 -> "сентября"
+        10 -> "октября"
+        11 -> "ноября"
+        else -> "декабря"
     }
 }
